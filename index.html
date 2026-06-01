@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belle Croissant Lyonnais — Подготовка к экзамену</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Code+Pro:wght@400;600&family=Nunito:wght@400;600;700;800&display=swap');
+
+  :root {
+    --cream: #FDF6EC;
+    --warm-white: #FFFBF4;
+    --gold: #C9933A;
+    --gold-light: #E8B96A;
+    --gold-dark: #9A6B20;
+    --brown: #3D2314;
+    --brown-mid: #6B3D22;
+    --brown-light: #A0613A;
+    --sage: #7A9E7E;
+    --sage-light: #B8D4BA;
+    --red: #C0392B;
+    --red-light: #F5B7B1;
+    --blue: #2E6DA4;
+    --blue-light: #AED6F1;
+    --ink: #1A0A00;
+    --text: #2C1A0E;
+    --text-muted: #7A5C3E;
+    --border: #E8D5B7;
+    --shadow: rgba(61, 35, 20, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 28px 40px 24px;
+    border-bottom: 4px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+  }
+
+  .logo span { color: var(--cream); font-weight: 700; }
+
+  .header-badge {
+    background: var(--gold);
+    color: var(--brown);
+    font-weight: 800;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* NAV TABS */
+  .nav-wrap {
+    background: var(--brown-mid);
+    border-bottom: 3px solid var(--gold-dark);
+    position: sticky;
+    top: 89px;
+    z-index: 99;
+    overflow-x: auto;
+  }
+
+  .nav {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-width: max-content;
+  }
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--gold-light);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-btn:hover { color: var(--cream); background: rgba(255,255,255,0.05); }
+
+  .nav-btn.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--warm-white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* TAGS / BADGES */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+  .badge-gold { background: var(--gold-light); color: var(--brown); }
+  .badge-green { background: var(--sage-light); color: #2D5A30; }
+  .badge-red { background: var(--red-light); color: var(--red); }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+
+  /* CODE BLOCKS */
+  pre, .code {
+    background: var(--brown);
+    color: #F0D9A8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 12px 0;
+    border-left: 4px solid var(--gold);
+  }
+
+  .code-inline {
+    background: #EDE0CE;
+    color: var(--brown);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    background: var(--brown);
+    color: var(--gold-light);
+    font-weight: 700;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+  tr:hover td { background: rgba(201,147,58,0.07); }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    border-left: 4px solid;
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .callout-gold { background: #FFF8EA; border-color: var(--gold); }
+  .callout-green { background: #F0FAF1; border-color: var(--sage); }
+  .callout-red { background: #FEF0EF; border-color: var(--red); }
+  .callout-blue { background: #EEF6FF; border-color: var(--blue); }
+
+  .callout strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* DIAGRAMS */
+  .diagram {
+    background: var(--brown);
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    margin: 14px 0;
+  }
+
+  .diagram-box {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--brown);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    min-width: 220px;
+    margin: 4px;
+  }
+
+  .diagram-arrow {
+    color: var(--gold-light);
+    font-size: 22px;
+    line-height: 1;
+    display: block;
+    margin: 4px 0;
+  }
+
+  .diagram-label {
+    color: #C4A46A;
+    font-size: 11px;
+    font-style: italic;
+    display: block;
+    margin: -2px 0 2px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .icon { flex-shrink: 0; margin-top: 1px; }
+
+  /* QUIZ */
+  .quiz-card {
+    background: var(--warm-white);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .quiz-card.correct { border-color: var(--sage); background: #F5FBF5; }
+  .quiz-card.wrong { border-color: var(--red); background: #FEF5F4; }
+
+  .quiz-question {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+
+  .quiz-opt {
+    background: var(--cream);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 16px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: left;
+    transition: all 0.2s;
+  }
+
+  .quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: #FFF8EA; }
+  .quiz-opt.correct-opt { background: #E8F5E9; border-color: var(--sage); color: #2D5A30; }
+  .quiz-opt.wrong-opt { background: #FEECEC; border-color: var(--red); color: var(--red); }
+  .quiz-opt:disabled { cursor: default; }
+
+  .quiz-feedback {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: #E8F5E9; color: #2D5A30; border-left: 4px solid var(--sage); }
+  .quiz-feedback.wrong { background: #FEECEC; color: #8B1A1A; border-left: 4px solid var(--red); }
+
+  .quiz-score-bar {
+    background: var(--brown);
+    border-radius: 12px;
+    padding: 20px 28px;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .quiz-score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .quiz-reset-btn {
+    background: var(--gold);
+    border: none;
+    color: var(--brown);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .quiz-reset-btn:hover { background: var(--gold-light); }
+
+  /* PROGRESS */
+  .progress-bar-wrap {
+    background: var(--border);
+    border-radius: 100px;
+    height: 8px;
+    margin: 8px 0;
+    overflow: hidden;
+  }
+  .progress-bar {
+    background: var(--gold);
+    height: 100%;
+    border-radius: 100px;
+    transition: width 0.5s ease;
+  }
+
+  /* QA ACCORDION */
+  .qa-item {
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .qa-question {
+    background: var(--warm-white);
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--brown);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .qa-question:hover { background: #FFF8EA; }
+  .qa-question.open { background: var(--brown); color: var(--gold-light); }
+  .qa-arrow { transition: transform 0.2s; font-size: 12px; }
+  .qa-question.open .qa-arrow { transform: rotate(180deg); }
+
+  .qa-answer {
+    display: none;
+    padding: 16px 20px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    border-top: 1px solid var(--border);
+    background: white;
+  }
+  .qa-answer.open { display: block; }
+
+  /* HERO */
+  .hero {
+    background: var(--brown);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🥐';
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;
+    opacity: 0.15;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .hero-sub {
+    color: #C4A46A;
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-pill {
+    background: rgba(201,147,58,0.2);
+    border: 1px solid var(--gold-dark);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* STAT BOXES */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  @media(max-width: 768px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+  .stat-box {
+    background: var(--warm-white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-dark);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+  }
+
+  /* FLOW STEPS */
+  .flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .flow-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--brown);
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .flow-connector {
+    width: 2px;
+    height: 28px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+  .flow-content {
+    padding-bottom: 20px;
+    flex: 1;
+    min-width: 0;
+  }
+  .flow-content-title { font-weight: 700; color: var(--brown); font-size: 15px; margin-bottom: 4px; }
+  .flow-content-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+  /* METHOD CARDS */
+  .method-card {
+    background: var(--warm-white);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .method-card:hover { transform: translateY(-2px); }
+  .method-verb {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .method-get { color: var(--blue); border-top: 4px solid var(--blue); }
+  .method-post { color: var(--sage); border-top: 4px solid var(--sage); }
+  .method-put { color: var(--gold-dark); border-top: 4px solid var(--gold); }
+  .method-delete { color: var(--red); border-top: 4px solid var(--red); }
+  .method-action { font-weight: 700; font-size: 14px; }
+  .method-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  /* PRINT */
+  @media print {
+    .nav-wrap, .header { position: static; }
+    .tab-content { display: block !important; page-break-before: always; }
+  }
+
+  h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--brown-mid); margin: 18px 0 10px; }
+  h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin: 16px 0 8px; }
+  p { font-size: 14.5px; line-height: 1.7; margin-bottom: 10px; }
+  ul { padding-left: 20px; }
+  li { font-size: 14.5px; line-height: 1.6; margin-bottom: 4px; }
+  strong { color: var(--brown); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">🥐 Belle Croissant <span>Lyonnais</span></div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+      <span class="header-badge">ДЕМО ЭКЗАМЕН</span>
+      <span class="header-badge" style="background:var(--sage);color:white;">Полная подготовка</span>
+    </div>
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showTab('overview')">🏠 Обзор</button>
+    <button class="nav-btn" onclick="showTab('architecture')">🏗️ Архитектура</button>
+    <button class="nav-btn" onclick="showTab('api')">🔗 API & HTTP</button>
+    <button class="nav-btn" onclick="showTab('models')">📊 Модели данных</button>
+    <button class="nav-btn" onclick="showTab('desktop')">💻 Desktop</button>
+    <button class="nav-btn" onclick="showTab('analytics')">📈 Аналитика</button>
+    <button class="nav-btn" onclick="showTab('tests')">✅ Тесты</button>
+    <button class="nav-btn" onclick="showTab('qa')">❓ 30 Вопросов</button>
+    <button class="nav-btn" onclick="showTab('quiz')">🧠 Квиз</button>
+    <button class="nav-btn" onclick="showTab('cheatsheet')">⚡ Шпаргалка</button>
+  </nav>
+</div>
+
+<main class="main">
+
+<!-- ======================== OVERVIEW ======================== -->
+<div id="tab-overview" class="tab-content active">
+  <div class="hero">
+    <div class="hero-title">Добро пожаловать в систему подготовки!</div>
+    <div class="hero-sub">Полный интерактивный гайд для подготовки к демо-экзамену по проекту Belle Croissant Lyonnais. Здесь всё что нужно — от теории до квиза.</div>
+    <div class="hero-pills">
+      <span class="hero-pill">🏗️ Трёхслойная архитектура</span>
+      <span class="hero-pill">🔗 REST API (ASP.NET)</span>
+      <span class="hero-pill">💻 Windows Forms</span>
+      <span class="hero-pill">📊 SQL Server</span>
+      <span class="hero-pill">📈 Аналитика (CLTV, Churn)</span>
+      <span class="hero-pill">✅ 19 Unit-тестов</span>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Слоя архитектуры</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">4</div>
+      <div class="stat-label">HTTP метода</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">19</div>
+      <div class="stat-label">Unit-тестов</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Вопросов к экзамену</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🥐 Что такое Belle Croissant Lyonnais?</div>
+      <p>Это <strong>система управления пекарней</strong> (как CRM). Представь: ты владелец пекарни в Лионе, Франция. Тебе нужно:</p>
+      <ul class="checklist">
+        <li><span class="icon">🧺</span> Управлять товарами — круассаны, хлеб, тарты</li>
+        <li><span class="icon">👥</span> Вести базу клиентов (VIP, обычные)</li>
+        <li><span class="icon">📋</span> Регистрировать заказы и отслеживать статусы</li>
+        <li><span class="icon">📊</span> Видеть аналитику — кто приносит больше денег, кто ушёл</li>
+        <li><span class="icon">🔒</span> Только авторизованные сотрудники имеют доступ</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🗂️ Из чего состоит проект?</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Компонент</th><th>Что это</th></tr>
+          <tr><td><code class="code-inline">BelleCroissantAPI</code></td><td>Сердце системы — REST сервер</td></tr>
+          <tr><td><code class="code-inline">BelleCroissantDesktop</code></td><td>Интерфейс для сотрудников</td></tr>
+          <tr><td><code class="code-inline">BakeryInventoryTesting</code></td><td>19 тестов для проверки логики</td></tr>
+          <tr><td><code class="code-inline">SQL Server</code></td><td>База данных (хранилище)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🗺️ Как использовать этот гайд?</div>
+    <div class="grid-3">
+      <div class="callout callout-gold">
+        <strong>⚡ 5 минут</strong>
+        Вкладка «Шпаргалка» → читай ключевые факты
+      </div>
+      <div class="callout callout-green">
+        <strong>⏱️ 30–60 минут</strong>
+        Вкладки «Архитектура», «API», «Модели», «Аналитика», «Тесты»
+      </div>
+      <div class="callout callout-blue">
+        <strong>🧠 Тренировка</strong>
+        Вкладки «30 Вопросов» и «Квиз» — отвечай на вопросы вслух!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== ARCHITECTURE ======================== -->
+<div id="tab-architecture" class="tab-content">
+  <div class="section-title">🏗️ Архитектура системы</div>
+  <div class="section-subtitle">Как устроен проект изнутри — три слоя, которые работают вместе</div>
+
+  <div class="card">
+    <div class="card-title">Трёхслойная архитектура</div>
+    <div class="diagram">
+      <div class="diagram-box">💻 Desktop приложение (WinForms)</div>
+      <div class="diagram-label">MainForm, ProductsForm, OrdersForm, AnalyticsForm</div>
+      <div class="diagram-arrow">↕</div>
+      <div class="diagram-label" style="color:#8BA88D;">HTTP запросы (GET, POST, PUT, DELETE)</div>
+      <div class="diagram-box" style="background:#E8B96A;">🔗 REST API (ASP.NET Core)</div>
+      <div class="diagram-label">Controllers: Products, Customers, Orders</div>
+      <div class="diagram-arrow">↕</div>
+      <div class="diagram-label" style="color:#8BA88D;">SQL запросы (Entity Framework)</div>
+      <div class="diagram-box" style="background:#A0613A;color:#FDF6EC;">🗄️ SQL Server Database</div>
+      <div class="diagram-label" style="color:#8BA88D;">Таблицы: Products, Customers, Orders, OrderItems</div>
+    </div>
+    <div class="callout callout-gold">
+      <strong>💡 Почему трёхслойная?</strong>
+      <ul style="margin-top:6px;">
+        <li>✅ <strong>Разделение ответственности</strong> — каждый слой делает своё дело</li>
+        <li>✅ <strong>Масштабируемость</strong> — легко добавить новые функции</li>
+        <li>✅ <strong>Тестируемость</strong> — каждый слой можно тестировать отдельно</li>
+        <li>✅ <strong>Гибкость</strong> — можно заменить любой слой (например, поменять БД)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔄 Как работает один запрос — от клика до ответа</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">1</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Сотрудник кликает "Добавить товар"</div>
+          <div class="flow-content-desc">В Desktop приложении заполнена форма: название, цена, категория</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">2</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">ApiService формирует HTTP запрос</div>
+          <div class="flow-content-desc"><code class="code-inline">POST http://localhost:5001/api/products</code> с данными в формате JSON</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">3</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">ProductsController получает запрос</div>
+          <div class="flow-content-desc">Проверяет аутентификацию (staff:BCLyon2024) и валидирует данные</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">4</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Entity Framework сохраняет в БД</div>
+          <div class="flow-content-desc">ORM преобразует C# объект в SQL запрос и сохраняет данные</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">5</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">API возвращает JSON ответ (201 Created)</div>
+          <div class="flow-content-desc">Ответ с данными нового товара и его ID</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">6</div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Desktop показывает результат</div>
+          <div class="flow-content-desc">Сообщение "Товар добавлен!" и новый товар появляется в таблице ✅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📁 Структура BelleCroissantAPI</div>
+      <pre>BelleCroissantAPI/
+├── Program.cs           # Точка входа, порт 5001
+├── appsettings.json     # Строка подключения к БД
+├── Controllers/
+│   ├── ProductsController.cs
+│   ├── CustomersController.cs
+│   └── OrdersController.cs
+├── Models/
+│   ├── Product.cs
+│   ├── Customer.cs
+│   ├── Order.cs
+│   └── OrderItem.cs
+└── Data/
+    └── AppDbContext.cs  # Entity Framework</pre>
+    </div>
+    <div class="card">
+      <div class="card-title">📁 Структура BelleCroissantDesktop</div>
+      <pre>BelleCroissantDesktop/
+├── MainForm.cs          # Главное меню
+├── Services/
+│   ├── ApiService.cs       # HTTP запросы
+│   └── AnalyticsDataLoader.cs # Читает CSV
+├── Forms/
+│   ├── ProductsForm.cs
+│   ├── OrdersForm.cs
+│   └── AnalyticsForm.cs
+├── Models/
+│   ├── CLTVData.cs
+│   ├── ChurnMetrics.cs
+│   └── SalesForecast.cs
+└── Data/                # CSV файлы Session 1</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔑 Ключевые понятия</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Понятие</th><th>Что это (простыми словами)</th></tr>
+        <tr><td><strong>Entity Framework (EF)</strong></td><td>ORM — преобразует C# объекты в SQL запросы. Не нужно писать SQL вручную</td></tr>
+        <tr><td><strong>DbContext</strong></td><td>Главный класс EF — управляет всеми таблицами (Products, Customers, Orders)</td></tr>
+        <tr><td><strong>ApiService</strong></td><td>Класс в Desktop, который отправляет HTTP запросы в API</td></tr>
+        <tr><td><strong>async/await</strong></td><td>Асинхронное программирование — приложение не "зависает" во время запроса</td></tr>
+        <tr><td><strong>Basic Auth</strong></td><td>Метод аутентификации — логин:пароль кодируется в Base64 и добавляется в заголовок</td></tr>
+        <tr><td><strong>JSON</strong></td><td>Формат данных для передачи по HTTP (как текст в виде словаря)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== API ======================== -->
+<div id="tab-api" class="tab-content">
+  <div class="section-title">🔗 API и HTTP методы</div>
+  <div class="section-subtitle">REST API работает на <code class="code-inline">localhost:5001</code> и принимает HTTP запросы</div>
+
+  <div class="card">
+    <div class="card-title">4 HTTP метода — запомни как CRUD</div>
+    <div class="grid-2" style="margin-bottom:16px;">
+      <div class="method-card method-get"><div class="method-verb">GET</div><div class="method-action">📖 Получить / Читать</div><div class="method-desc">Запросить данные с сервера</div></div>
+      <div class="method-card method-post"><div class="method-verb">POST</div><div class="method-action">➕ Создать</div><div class="method-desc">Отправить новые данные</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="method-card method-put"><div class="method-verb">PUT</div><div class="method-action">✏️ Обновить</div><div class="method-desc">Изменить существующие данные</div></div>
+      <div class="method-card method-delete"><div class="method-verb">DELETE</div><div class="method-action">🗑️ Удалить</div><div class="method-desc">Удалить данные</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Все API Endpoints</div>
+    <h3>Товары (Products)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Метод</th><th>URL</th><th>Что делает</th></tr>
+        <tr><td><span class="badge badge-blue">GET</span></td><td><code class="code-inline">/api/products</code></td><td>Получить все товары</td></tr>
+        <tr><td><span class="badge badge-blue">GET</span></td><td><code class="code-inline">/api/products/1</code></td><td>Получить товар с ID=1</td></tr>
+        <tr><td><span class="badge badge-blue">GET</span></td><td><code class="code-inline">/api/products?category=Bread</code></td><td>Фильтр по категории</td></tr>
+        <tr><td><span class="badge badge-green">POST</span></td><td><code class="code-inline">/api/products</code></td><td>Добавить новый товар</td></tr>
+        <tr><td><span class="badge badge-gold">PUT</span></td><td><code class="code-inline">/api/products/1</code></td><td>Обновить товар с ID=1</td></tr>
+        <tr><td><span class="badge badge-red">DELETE</span></td><td><code class="code-inline">/api/products/1</code></td><td>Удалить товар с ID=1</td></tr>
+      </table>
+    </div>
+    <h3>Клиенты (Customers)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Метод</th><th>URL</th><th>Что делает</th></tr>
+        <tr><td><span class="badge badge-blue">GET</span></td><td><code class="code-inline">/api/customers</code></td><td>Все клиенты</td></tr>
+        <tr><td><span class="badge badge-green">POST</span></td><td><code class="code-inline">/api/customers</code></td><td>Добавить клиента</td></tr>
+        <tr><td><span class="badge badge-gold">PUT</span></td><td><code class="code-inline">/api/customers/1</code></td><td>Обновить клиента</td></tr>
+      </table>
+    </div>
+    <h3>Заказы (Orders)</h3>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Метод</th><th>URL</th><th>Что делает</th></tr>
+        <tr><td><span class="badge badge-blue">GET</span></td><td><code class="code-inline">/api/orders</code></td><td>Все заказы</td></tr>
+        <tr><td><span class="badge badge-green">POST</span></td><td><code class="code-inline">/api/orders</code></td><td>Создать заказ</td></tr>
+        <tr><td><span class="badge badge-gold">PUT</span></td><td><code class="code-inline">/api/orders/1/complete</code></td><td>Завершить заказ</td></tr>
+        <tr><td><span class="badge badge-gold">PUT</span></td><td><code class="code-inline">/api/orders/1/cancel</code></td><td>Отменить заказ</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🔒 Аутентификация (Basic Auth)</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Поле</th><th>Значение</th></tr>
+          <tr><td>Username</td><td><code class="code-inline">staff</code></td></tr>
+          <tr><td>Password</td><td><code class="code-inline">BCLyon2024</code></td></tr>
+          <tr><td>Метод</td><td>Basic Auth</td></tr>
+          <tr><td>Кодирование</td><td>Base64</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:12px; font-size:13px;">Как работает внутри:</p>
+      <pre style="font-size:12px;">staff:BCLyon2024
+    ↓ (Base64 кодирование)
+c3RhZmY6QkNMeW9uMjAyNA==
+    ↓ (добавляется в заголовок)
+Authorization: Basic c3RhZm...</pre>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 HTTP коды ответов</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Код</th><th>Статус</th><th>Когда</th></tr>
+          <tr><td><span class="badge badge-green">200</span></td><td>OK</td><td>GET запрос успешен</td></tr>
+          <tr><td><span class="badge badge-green">201</span></td><td>Created</td><td>POST — создали что-то</td></tr>
+          <tr><td><span class="badge badge-red">400</span></td><td>Bad Request</td><td>Неправильные данные</td></tr>
+          <tr><td><span class="badge badge-red">401</span></td><td>Unauthorized</td><td>Нет логина/пароля</td></tr>
+          <tr><td><span class="badge badge-red">404</span></td><td>Not Found</td><td>Объект не найден</td></tr>
+          <tr><td><span class="badge badge-red">500</span></td><td>Server Error</td><td>Ошибка сервера</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🛡️ Валидация при создании Product</div>
+    <div class="callout callout-red">
+      <strong>❌ Эти данные вызовут ошибку 400 Bad Request:</strong>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Поле</th><th>Правило</th><th>Пример ошибки</th></tr>
+        <tr><td><code class="code-inline">ProductName</code></td><td>Не может быть пустым</td><td><code class="code-inline">""</code> → ошибка</td></tr>
+        <tr><td><code class="code-inline">Category</code></td><td>Только: Pastry, Bread, Tart</td><td><code class="code-inline">"Cake"</code> → ошибка</td></tr>
+        <tr><td><code class="code-inline">Price</code></td><td>Должна быть &gt; 0</td><td><code class="code-inline">-1.50</code> → ошибка</td></tr>
+        <tr><td><code class="code-inline">Cost</code></td><td>Должна быть &gt; 0 и &lt; Price</td><td><code class="code-inline">cost &gt;= price</code> → ошибка</td></tr>
+        <tr><td><code class="code-inline">ReleaseDate</code></td><td>Обязательна</td><td>Без даты → ошибка</td></tr>
+      </table>
+    </div>
+    <pre>// Пример валидации в коде (ProductsController.cs)
+if (dto.Price <= 0)
+    return BadRequest(new { message = "Price must be positive." });
+
+if (dto.Cost <= 0 || dto.Cost >= dto.Price)
+    return BadRequest(new { message = "Cost must be less than Price." });</pre>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💻 Примеры curl запросов</div>
+    <h3>GET — получить все товары</h3>
+    <pre>curl -u staff:BCLyon2024 http://localhost:5001/api/products</pre>
+    <h3>POST — добавить новый товар</h3>
+    <pre>curl -X POST -u staff:BCLyon2024 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "productName": "Круассан",
+    "category": "Pastry",
+    "price": 2.50,
+    "cost": 0.90,
+    "releaseDate": "2024-05-27"
+  }' \
+  http://localhost:5001/api/products</pre>
+    <h3>PUT — обновить товар</h3>
+    <pre>curl -X PUT -u staff:BCLyon2024 \
+  -H "Content-Type: application/json" \
+  -d '{"productName": "Круассан Premium", "price": 3.50, "cost": 1.20}' \
+  http://localhost:5001/api/products/1</pre>
+    <h3>DELETE — удалить товар</h3>
+    <pre>curl -X DELETE -u staff:BCLyon2024 http://localhost:5001/api/products/1</pre>
+  </div>
+</div>
+
+<!-- ======================== MODELS ======================== -->
+<div id="tab-models" class="tab-content">
+  <div class="section-title">📊 Модели данных</div>
+  <div class="section-subtitle">Структуры данных (модели) — это "анкеты" для хранения информации в базе данных</div>
+
+  <div class="card">
+    <div class="card-title">🔗 Связи между моделями</div>
+    <div class="diagram">
+      <div class="diagram-box">👥 Customer (Клиент)</div>
+      <div class="diagram-arrow">↓ один клиент → много заказов</div>
+      <div class="diagram-box" style="background:#E8B96A;">📋 Order (Заказ)</div>
+      <div class="diagram-arrow">↓ один заказ → много позиций</div>
+      <div class="diagram-box" style="background:#A0613A;color:#FDF6EC;">🛒 OrderItem (Позиция)</div>
+      <div class="diagram-arrow">↓ ссылается на товар</div>
+      <div class="diagram-box" style="background:#7A9E7E;color:white;">🥐 Product (Товар)</div>
+    </div>
+    <div class="callout callout-gold">
+      <strong>Пример на практике:</strong>
+      Клиент «Жан Дюпон» делает Заказ №1, в котором есть OrderItem: 3× Круассан + 2× Багет. Каждый OrderItem ссылается на Product из каталога.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🥐 Product (Товар)</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Поле</th><th>Тип</th><th>Пример</th></tr>
+          <tr><td><code class="code-inline">ProductId</code></td><td>int</td><td>1</td></tr>
+          <tr><td><code class="code-inline">ProductName</code></td><td>string *</td><td>"Круассан"</td></tr>
+          <tr><td><code class="code-inline">Category</code></td><td>string *</td><td>"Pastry"</td></tr>
+          <tr><td><code class="code-inline">Price</code></td><td>decimal *</td><td>2.50</td></tr>
+          <tr><td><code class="code-inline">Cost</code></td><td>decimal *</td><td>0.90</td></tr>
+          <tr><td><code class="code-inline">Seasonal</code></td><td>bool</td><td>false</td></tr>
+          <tr><td><code class="code-inline">Active</code></td><td>bool</td><td>true</td></tr>
+          <tr><td><code class="code-inline">ReleaseDate</code></td><td>DateTime *</td><td>2024-05-27</td></tr>
+          <tr><td><code class="code-inline">Ingredients</code></td><td>string?</td><td>"мука, масло"</td></tr>
+          <tr><td><code class="code-inline">Description</code></td><td>string?</td><td>"Классический..."</td></tr>
+        </table>
+      </div>
+      <p style="font-size:12px; color:var(--text-muted); margin-top:8px;">* — обязательные поля</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">👥 Customer (Клиент)</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Поле</th><th>Описание</th></tr>
+          <tr><td><code class="code-inline">CustomerId</code></td><td>Уникальный ID</td></tr>
+          <tr><td><code class="code-inline">FirstName / LastName</code></td><td>Имя и фамилия</td></tr>
+          <tr><td><code class="code-inline">Email</code></td><td>Электронная почта</td></tr>
+          <tr><td><code class="code-inline">PhoneNumber</code></td><td>Телефон</td></tr>
+          <tr><td><code class="code-inline">Age / Gender</code></td><td>Возраст, пол</td></tr>
+          <tr><td><code class="code-inline">MembershipStatus</code></td><td>Basic / Gold / Platinum</td></tr>
+          <tr><td><code class="code-inline">TotalSpending</code></td><td>Сколько потратил всего</td></tr>
+          <tr><td><code class="code-inline">AvgOrderValue</code></td><td>Средний размер заказа</td></tr>
+          <tr><td><code class="code-inline">Frequency</code></td><td>Покупок в месяц</td></tr>
+          <tr><td><code class="code-inline">PreferredCategory</code></td><td>Любимая категория</td></tr>
+          <tr><td><code class="code-inline">ChurnStatus</code></td><td>Ушёл из пекарни?</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📋 Order (Заказ)</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Поле</th><th>Описание</th></tr>
+          <tr><td><code class="code-inline">OrderId</code></td><td>ID заказа</td></tr>
+          <tr><td><code class="code-inline">CustomerId</code></td><td>Ссылка на клиента</td></tr>
+          <tr><td><code class="code-inline">OrderDate</code></td><td>Дата и время заказа</td></tr>
+          <tr><td><code class="code-inline">TotalAmount</code></td><td>Общая сумма</td></tr>
+          <tr><td><code class="code-inline">Status</code></td><td>Статус заказа</td></tr>
+          <tr><td><code class="code-inline">DeliveryMethod</code></td><td>Pickup / Delivery</td></tr>
+          <tr><td><code class="code-inline">OrderItems</code></td><td>Список позиций</td></tr>
+        </table>
+      </div>
+      <div class="callout callout-blue" style="margin-top:12px;">
+        <strong>Статусы заказа:</strong>
+        Pending → Processing → Completed (или Cancelled)
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🛒 OrderItem (Позиция заказа)</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Поле</th><th>Описание</th></tr>
+          <tr><td><code class="code-inline">ItemId</code></td><td>ID позиции</td></tr>
+          <tr><td><code class="code-inline">OrderId</code></td><td>Ссылка на заказ</td></tr>
+          <tr><td><code class="code-inline">ProductId</code></td><td>Ссылка на товар</td></tr>
+          <tr><td><code class="code-inline">Quantity</code></td><td>Количество</td></tr>
+          <tr><td><code class="code-inline">UnitPrice</code></td><td>Цена за единицу</td></tr>
+        </table>
+      </div>
+      <div class="callout callout-green" style="margin-top:12px;">
+        <strong>Пример:</strong>
+        ItemId=1, OrderId=5, ProductId=1 (Круассан), Quantity=3, UnitPrice=2.50 → сумма 7.50
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💾 Код примеры</div>
+    <h3>Создание товара</h3>
+    <pre>var product = new Product {
+    ProductName = "Круассан",
+    Category    = "Pastry",
+    Price       = 2.50m,
+    Cost        = 0.90m,
+    ReleaseDate = new DateTime(2024, 5, 27),
+    Active      = true
+};
+_db.Products.Add(product);
+await _db.SaveChangesAsync(); // сохранить в БД</pre>
+
+    <h3>Получить все товары категории "Pastry"</h3>
+    <pre>var pastries = await _db.Products
+    .Where(p => p.Category == "Pastry")
+    .ToListAsync();</pre>
+
+    <h3>Создание заказа с позициями</h3>
+    <pre>var order = new Order {
+    CustomerId     = 1,
+    OrderDate      = DateTime.Now,
+    Status         = "Pending",
+    DeliveryMethod = "Pickup"
+};
+order.OrderItems.Add(new OrderItem {
+    ProductId = 1,       // Круассан
+    Quantity  = 3,
+    UnitPrice = 2.50m
+});
+_db.Orders.Add(order);
+await _db.SaveChangesAsync();</pre>
+  </div>
+</div>
+
+<!-- ======================== DESKTOP ======================== -->
+<div id="tab-desktop" class="tab-content">
+  <div class="section-title">💻 Desktop Приложение</div>
+  <div class="section-subtitle">Windows Forms приложение — интерфейс для сотрудников пекарни</div>
+
+  <div class="card">
+    <div class="card-title">🗺️ Навигация по формам</div>
+    <div class="diagram">
+      <div class="diagram-box">🏠 MainForm (Главное меню)</div>
+      <div style="display:flex; justify-content:center; gap:20px; margin-top:8px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="diagram-arrow">↓</div>
+          <div class="diagram-box" style="background:#7A9E7E;color:white;font-size:12px;min-width:140px;">📦 ProductsForm</div>
+          <div class="diagram-label">Управление товарами</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="diagram-arrow">↓</div>
+          <div class="diagram-box" style="background:#E8B96A;color:#3D2314;font-size:12px;min-width:140px;">📋 OrdersForm</div>
+          <div class="diagram-label">Управление заказами</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div class="diagram-arrow">↓</div>
+          <div class="diagram-box" style="background:#6B9DC2;color:white;font-size:12px;min-width:140px;">📊 AnalyticsForm</div>
+          <div class="diagram-label">Аналитика</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📦 ProductsForm</div>
+      <ul class="checklist">
+        <li><span class="icon">📋</span> Таблица (DataGridView) со всеми товарами</li>
+        <li><span class="icon">➕</span> Форма добавления нового товара</li>
+        <li><span class="icon">✏️</span> Редактирование существующего товара</li>
+        <li><span class="icon">🗑️</span> Удаление товара</li>
+        <li><span class="icon">🔍</span> Поиск по названию или категории</li>
+      </ul>
+      <div class="callout callout-gold" style="margin-top:12px;">
+        <strong>Что вводить для демо:</strong>
+        Название «Круассан», Категория «Pastry», Цена 2.50, Себестоимость 0.90, Дата 27.05.2024
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 OrdersForm</div>
+      <ul class="checklist">
+        <li><span class="icon">📋</span> Таблица всех заказов с их статусами</li>
+        <li><span class="icon">➕</span> Создание нового заказа</li>
+        <li><span class="icon">✅</span> Кнопка "Завершить заказ"</li>
+        <li><span class="icon">❌</span> Кнопка "Отменить заказ"</li>
+        <li><span class="icon">👁️</span> Просмотр деталей заказа</li>
+      </ul>
+      <div class="callout callout-blue" style="margin-top:12px;">
+        <strong>Статусы заказа:</strong>
+        <code class="code-inline">Pending</code> → <code class="code-inline">Processing</code> → <code class="code-inline">Completed</code> или <code class="code-inline">Cancelled</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📊 AnalyticsForm — 3 вкладки</div>
+    <div class="grid-3">
+      <div class="callout callout-gold">
+        <strong>Вкладка 1: CLTV</strong>
+        Топ клиентов по Customer Lifetime Value. Таблица отсортирована по стоимости. VIP клиенты наверху.
+      </div>
+      <div class="callout callout-red">
+        <strong>Вкладка 2: Churn</strong>
+        Метрики оттока: Churn Rate %, Retained Rate %, Avg Customer Lifetime. Показывает кто ушёл.
+      </div>
+      <div class="callout callout-blue">
+        <strong>Вкладка 3: Forecast</strong>
+        График прогноза продаж на 30 дней вперёд. Помогает планировать закупки.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎬 Сценарий демонстрации — шаг за шагом</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">1</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Запустить API и Desktop</div>
+          <div class="flow-content-desc"><pre style="margin:6px 0;">cd BelleCroissantAPI && dotnet run   # Терминал 1
+cd BelleCroissantDesktop && dotnet run  # Терминал 2</pre></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">2</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Добавить новый товар</div>
+          <div class="flow-content-desc">Нажать «📦 Товары» → заполнить форму → нажать «➕ Добавить» → товар появится в таблице ✅</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">3</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Показать HTTP запрос в терминале</div>
+          <div class="flow-content-desc"><pre style="margin:6px 0;">curl -u staff:BCLyon2024 http://localhost:5001/api/products</pre>Объяснить что Desktop делает это автоматически</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">4</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Создать заказ</div>
+          <div class="flow-content-desc">«📋 Заказы» → выбрать клиента → добавить товары → нажать «➕ Добавить заказ»</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">5</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Показать аналитику</div>
+          <div class="flow-content-desc">«📊 Аналитика» → показать 3 вкладки: CLTV, Churn, Forecast — объяснить каждую</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">6</div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Запустить тесты</div>
+          <div class="flow-content-desc"><pre style="margin:6px 0;">dotnet test BakeryInventoryTesting  # Должно быть: Passed: 19 ✅</pre></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== ANALYTICS ======================== -->
+<div id="tab-analytics" class="tab-content">
+  <div class="section-title">📈 Аналитика</div>
+  <div class="section-subtitle">Три вида аналитики из Session 1 (Python), загружаемые в C# приложение через CSV</div>
+
+  <div class="card">
+    <div class="card-title">🔄 Как интегрирована аналитика</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">S1</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Session 1 — Python анализ</div>
+          <div class="flow-content-desc">Python скрипты рассчитывают CLTV, Churn и прогноз продаж из исторических данных</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">📄</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Экспорт в CSV файлы</div>
+          <div class="flow-content-desc"><code class="code-inline">Session1_CLTV.csv</code>, <code class="code-inline">Session1_Churn_Analysis.csv</code>, <code class="code-inline">Session1_SalesForecast.csv</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">📂</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">Файлы копируются в Desktop/Data/</div>
+          <div class="flow-content-desc">CSV размещаются в папке проекта <code class="code-inline">BelleCroissantDesktop/Data/</code></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">⚙️</div><div class="flow-connector"></div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">AnalyticsDataLoader читает CSV</div>
+          <div class="flow-content-desc">C# класс парсит CSV файлы и преобразует строки в C# объекты</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-line"><div class="flow-dot">🖥️</div></div>
+        <div class="flow-content">
+          <div class="flow-content-title">AnalyticsForm отображает данные</div>
+          <div class="flow-content-desc">3 вкладки в форме: CLTV таблица, Churn метрики, Forecast график</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">⭐ CLTV — Customer Lifetime Value</div>
+      <div class="callout callout-gold">
+        <strong>Что это?</strong>
+        Сколько денег один клиент принесёт пекарне за всё время, пока он остаётся клиентом
+      </div>
+      <h3>Формула</h3>
+      <pre>CLTV = средний заказ × частота × время жизни
+     = AvgOrderValue × Frequency × Lifetime</pre>
+      <h3>Пример</h3>
+      <pre>Жан Дюпон:
+  Средний заказ:  100 ₸
+  Частота:        5 раз/месяц
+  Активен:        30 месяцев
+  ─────────────────────────
+  CLTV = 100 × 5 × 30 = 15,000 ₸</pre>
+      <h3>Почему важно?</h3>
+      <ul class="checklist">
+        <li><span class="icon">✅</span> Показывает ценность каждого клиента</li>
+        <li><span class="icon">✅</span> Помогает решить — VIP или обычный клиент</li>
+        <li><span class="icon">✅</span> Показывает, сколько вложить в маркетинг</li>
+        <li><span class="icon">✅</span> Помогает приоритизировать клиентов</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📉 Churn — отток клиентов</div>
+      <div class="callout callout-red">
+        <strong>Что это?</strong>
+        Churn = % клиентов, которые перестали покупать и "ушли" из пекарни
+      </div>
+      <h3>Метрики</h3>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Метрика</th><th>Пример</th><th>Значение</th></tr>
+          <tr><td>Churn Rate</td><td>15%</td><td>15 из 100 ушли</td></tr>
+          <tr><td>Retained Rate</td><td>85%</td><td>85 из 100 остались</td></tr>
+          <tr><td>Avg Lifetime</td><td>18 мес</td><td>Средняя активность</td></tr>
+        </table>
+      </div>
+      <h3>Как интерпретировать?</h3>
+      <ul class="checklist">
+        <li><span class="icon">✅</span> Churn 10–20% — норма, хороший результат</li>
+        <li><span class="icon">⚠️</span> Churn 30% — нужно улучшать</li>
+        <li><span class="icon">❌</span> Churn 50%+ — критично!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📅 Forecast — прогноз продаж</div>
+    <div class="callout callout-blue">
+      <strong>Что это?</strong>
+      Прогноз продаж на следующие 30 дней на основе исторических данных из Session 1
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>CSV структура</h3>
+        <pre>Session1_SalesForecast.csv:
+Date,PredictedSales
+2024-05-28,4200
+2024-05-29,3800
+2024-05-30,5100
+2024-05-31,4600
+...</pre>
+      </div>
+      <div>
+        <h3>Зачем нужен прогноз?</h3>
+        <ul class="checklist">
+          <li><span class="icon">✅</span> Планировать закупки ингредиентов</li>
+          <li><span class="icon">✅</span> Определять количество персонала</li>
+          <li><span class="icon">✅</span> Управлять запасами (не слишком много/мало)</li>
+          <li><span class="icon">✅</span> Оптимизировать расходы пекарни</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== TESTS ======================== -->
+<div id="tab-tests" class="tab-content">
+  <div class="section-title">✅ Тестирование</div>
+  <div class="section-subtitle">19 unit-тестов в проекте BakeryInventoryTesting — проверяют корректность бизнес-логики</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🤔 Зачем нужны тесты?</div>
+      <ul class="checklist">
+        <li><span class="icon">✅</span> <strong>Гарантия качества</strong> — код работает правильно</li>
+        <li><span class="icon">🐛</span> <strong>Поиск багов</strong> — ошибки найдены до запуска</li>
+        <li><span class="icon">🛡️</span> <strong>Защита от регрессии</strong> — новый код не ломает старый</li>
+        <li><span class="icon">📄</span> <strong>Документация</strong> — тесты показывают как использовать код</li>
+        <li><span class="icon">🔄</span> <strong>Рефакторинг</strong> — можно переписывать код смело</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">▶️ Как запустить тесты</div>
+      <pre># Перейти в папку
+cd BakeryInventoryTesting
+
+# Запустить все тесты
+dotnet test
+
+# Ожидаемый результат:
+Test Run Successful.
+Total tests: 19
+Passed:      19 ✅
+Failed:      0
+Duration:    0.456s</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📋 Все 19 тестов</div>
+    <div class="grid-2">
+      <div>
+        <h4>BakeryItem тесты (7 штук)</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Тест</th><th>Что проверяет</th></tr>
+            <tr><td style="font-size:12px;">Constructor_ValidInputs</td><td>Создание товара с правильными данными</td></tr>
+            <tr><td style="font-size:12px;">Constructor_EmptyName</td><td>Нельзя создать без имени</td></tr>
+            <tr><td style="font-size:12px;">Constructor_NegativePrice</td><td>Нельзя создать с Price &lt; 0</td></tr>
+            <tr><td style="font-size:12px;">Constructor_CostGreaterThanPrice</td><td>Нельзя если Cost ≥ Price</td></tr>
+            <tr><td style="font-size:12px;">Constructor_NegativeStock</td><td>Нельзя с отрицательным остатком</td></tr>
+            <tr><td style="font-size:12px;">GetProfitMargin</td><td>Правильный расчёт маржи</td></tr>
+            <tr><td style="font-size:12px;">IsLowStock</td><td>Определение низкого запаса</td></tr>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h4>BakeryInventory тесты (12 штук)</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Тест</th><th>Что проверяет</th></tr>
+            <tr><td style="font-size:12px;">AddItem_ValidItem</td><td>Добавление товара увеличивает счётчик</td></tr>
+            <tr><td style="font-size:12px;">AddItem_DuplicateId</td><td>Нельзя добавить с одинаковым ID</td></tr>
+            <tr><td style="font-size:12px;">RemoveItem_ExistingId</td><td>Удаление уменьшает счётчик</td></tr>
+            <tr><td style="font-size:12px;">RemoveItem_NonExistentId</td><td>Удаление несуществующего → ошибка</td></tr>
+            <tr><td style="font-size:12px;">GetById_Existing</td><td>Поиск по ID возвращает нужный товар</td></tr>
+            <tr><td style="font-size:12px;">GetById_NonExistent</td><td>Поиск несуществующего → ошибка</td></tr>
+            <tr><td style="font-size:12px;">GetByCategory</td><td>Фильтрация по категории работает</td></tr>
+            <tr><td style="font-size:12px;">GetLowStockItems</td><td>Находит товары с малым остатком</td></tr>
+            <tr><td style="font-size:12px;">GetTotalInventoryValue</td><td>Правильный подсчёт стоимости</td></tr>
+            <tr><td style="font-size:12px;">UpdateStock_Valid</td><td>Обновление остатка работает</td></tr>
+            <tr><td style="font-size:12px;">UpdateStock_Negative</td><td>Нельзя поставить отрицательный остаток</td></tr>
+            <tr><td style="font-size:12px;">RemoveAllActive</td><td>Удаление только активных товаров</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💻 Примеры кода тестов — для объяснения на экзамене</div>
+    <h3>Тест 1: Нельзя создать товар где себестоимость выше цены</h3>
+    <pre>[Test]
+public void Constructor_CostGreaterThanPrice_ThrowsArgumentException()
+{
+    // Пытаемся создать: price=1.00, cost=2.00 (себестоимость > цены!)
+    // Это нелогично — пекарня будет работать в убыток!
+    
+    Assert.Throws&lt;ArgumentException&gt;(() =>
+        new BakeryItem(1, "Круассан", "Pastry", 1.00m, 2.00m, 10));
+    
+    // Ожидание: выбросит исключение ✅
+    // Тест ПРОЙДЕН — защита от ошибок работает!
+}</pre>
+    <h3>Тест 2: Подсчёт общей стоимости инвентаря</h3>
+    <pre>[Test]
+public void GetTotalInventoryValue_ReturnsCorrectSum()
+{
+    // Инвентарь: Круассан (0.90₸ × 20шт) + Багет (0.50₸ × 30шт) + Тарт (2.00₸ × 4шт)
+    // Итого: 18 + 15 + 8 = 41 ₸
+    
+    var total = _inventory.GetTotalInventoryValue();
+    
+    Assert.That(total, Is.EqualTo(41m)); // ожидаем 41 ✅
+}</pre>
+  </div>
+</div>
+
+<!-- ======================== Q&A ======================== -->
+<div id="tab-qa" class="tab-content">
+  <div class="section-title">❓ 30 вопросов с ответами</div>
+  <div class="section-subtitle">Нажми на вопрос чтобы увидеть развёрнутый ответ. Попробуй сначала ответить сам!</div>
+
+  <h3 style="margin-bottom:12px;">📝 Часть 1: Общее понимание</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q1: Что такое проект Belle Croissant Lyonnais? <span class="qa-arrow">▼</span></div><div class="qa-answer">Belle Croissant Lyonnais — это <strong>полнофункциональная система управления пекарней</strong>, разработанная на .NET 8. Она включает: управление товарами (круассаны, хлеб, тарты), управление клиентами, систему учёта заказов и бизнес-аналитику.<br><br>Система состоит из трёх частей: <strong>REST API</strong> (сервер), <strong>Desktop приложение Windows Forms</strong> (клиент) и <strong>система тестирования</strong> (19 unit-тестов).</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q2: Какая архитектура и почему? <span class="qa-arrow">▼</span></div><div class="qa-answer">Используется <strong>трёхслойная архитектура</strong>:<br><br><code>Desktop (Presentation) → REST API (Application) → SQL Server (Data)</code><br><br>Почему трёхслойная: ✅ Разделение ответственности ✅ Масштабируемость — легко добавить новые функции ✅ Тестируемость — каждый слой тестируется отдельно ✅ Гибкость — можно заменить любой слой</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q3: Какие технологии используются? <span class="qa-arrow">▼</span></div><div class="qa-answer"><table><tr><th>Компонент</th><th>Технология</th></tr><tr><td>Backend</td><td>ASP.NET Core 8</td></tr><tr><td>Frontend</td><td>Windows Forms .NET 8</td></tr><tr><td>База данных</td><td>SQL Server Express</td></tr><tr><td>ORM</td><td>Entity Framework Core 8</td></tr><tr><td>Тестирование</td><td>NUnit 4.0+</td></tr><tr><td>Аутентификация</td><td>Basic Auth (HTTP)</td></tr></table></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q4: Как распределены файлы проекта? <span class="qa-arrow">▼</span></div><div class="qa-answer"><pre>Session3/
+├── BelleCroissantAPI/       → REST API сервер
+│   ├── Controllers/         → Обработчики запросов
+│   ├── Models/              → Структуры данных
+│   └── Data/AppDbContext.cs → Подключение к БД
+├── BelleCroissantDesktop/   → Windows Forms
+│   ├── MainForm.cs
+│   ├── Services/            → ApiService, AnalyticsDataLoader
+│   ├── Forms/               → ProductsForm, OrdersForm, AnalyticsForm
+│   └── Data/                → CSV файлы
+└── BakeryInventoryTesting/  → 19 unit-тестов</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q5: Роль каждого компонента? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>BelleCroissantAPI</strong> — сердце системы, обрабатывает все запросы, хранит бизнес-логику<br><strong>BelleCroissantDesktop</strong> — интерфейс для сотрудников пекарни (то, что они видят)<br><strong>BakeryInventoryTesting</strong> — автоматическая проверка корректности кода (19 тестов)<br><strong>SQL Server</strong> — хранилище всех данных (Products, Customers, Orders)</div></div>
+
+  <h3 style="margin:24px 0 12px;">🔗 Часть 2: HTTP и API</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q6: Объясни HTTP методы (CRUD) <span class="qa-arrow">▼</span></div><div class="qa-answer"><table><tr><th>Метод</th><th>CRUD</th><th>Что делает</th></tr><tr><td>GET</td><td>Read</td><td>Получить данные с сервера</td></tr><tr><td>POST</td><td>Create</td><td>Создать новый объект</td></tr><tr><td>PUT</td><td>Update</td><td>Обновить существующий объект</td></tr><tr><td>DELETE</td><td>Delete</td><td>Удалить объект</td></tr></table><br>Запомни как CRUD: <strong>C</strong>reate=POST, <strong>R</strong>ead=GET, <strong>U</strong>pdate=PUT, <strong>D</strong>elete=DELETE</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q7: Все API endpoints для Products <span class="qa-arrow">▼</span></div><div class="qa-answer"><pre>GET    /api/products              → все товары
+GET    /api/products/1            → товар с ID=1
+GET    /api/products?category=Bread → фильтр
+POST   /api/products              → создать товар
+PUT    /api/products/1            → обновить товар
+DELETE /api/products/1            → удалить товар</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q8: Валидации при создании Product <span class="qa-arrow">▼</span></div><div class="qa-answer">При создании товара проверяется:<br><br>❌ <strong>ProductName</strong> — не может быть пустым<br>❌ <strong>Category</strong> — только "Pastry", "Bread" или "Tart"<br>❌ <strong>Price</strong> — должна быть больше 0<br>❌ <strong>Cost</strong> — должна быть > 0 и МЕНЬШЕ Price<br>❌ <strong>ReleaseDate</strong> — обязательна<br><br>Если нарушить — вернётся ошибка 400 Bad Request</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q9: Что означает HTTP код 201? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>201 Created</strong> — означает, что новый объект успешно создан.<br><br>Возвращается при POST запросе (например, после создания нового товара). В ответе обычно содержится JSON с данными созданного объекта, включая его ID.</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q10: Все HTTP коды ответов <span class="qa-arrow">▼</span></div><div class="qa-answer"><table><tr><th>Код</th><th>Статус</th><th>Когда возникает</th></tr><tr><td>200 OK</td><td>✅</td><td>GET запрос успешен</td></tr><tr><td>201 Created</td><td>✅</td><td>POST создал объект</td></tr><tr><td>400 Bad Request</td><td>❌</td><td>Неправильные данные (нарушена валидация)</td></tr><tr><td>401 Unauthorized</td><td>❌</td><td>Нет или неверный логин/пароль</td></tr><tr><td>404 Not Found</td><td>❌</td><td>Объект с таким ID не найден</td></tr><tr><td>500 Server Error</td><td>❌</td><td>Ошибка на сервере</td></tr></table></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q11: Как работает аутентификация? <span class="qa-arrow">▼</span></div><div class="qa-answer">Используется <strong>Basic Auth</strong>:<br><br>Логин: <code>staff</code>, Пароль: <code>BCLyon2024</code><br><br>Как работает внутри:<br><pre>staff:BCLyon2024
+    ↓ Base64 кодирование
+c3RhZmY6QkNMeW9uMjAyNA==
+    ↓ добавляется в заголовок HTTP
+Authorization: Basic c3RhZmY6QkNMeW9uMjAyNA==</pre>API проверяет каждый запрос — есть ли правильный заголовок.</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q12: JSON структура для создания товара <span class="qa-arrow">▼</span></div><div class="qa-answer"><pre>{
+  "productName": "Круассан",
+  "category": "Pastry",
+  "price": 2.50,
+  "cost": 0.90,
+  "seasonal": false,
+  "active": true,
+  "releaseDate": "2024-05-27",
+  "description": "Классический круассан"
+}
+
+* Обязательные: productName, category, price, cost, releaseDate</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q13: Как работает поиск и фильтрация? <span class="qa-arrow">▼</span></div><div class="qa-answer"><pre>GET /api/products?search=круа
+    → ищет по названию и категории
+
+GET /api/products?category=Bread
+    → только товары категории Bread
+
+GET /api/products?search=круа&amp;category=Pastry
+    → комбинация: поиск + фильтр</pre></div></div>
+
+  <h3 style="margin:24px 0 12px;">📊 Часть 3: Модели данных</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q14: Поля модели Product <span class="qa-arrow">▼</span></div><div class="qa-answer">ProductId, ProductName*, Category*, Price*, Cost*, Seasonal, Active, ReleaseDate*, Ingredients (опц.), Description (опц.)<br><br>Категории: только <strong>Pastry</strong>, <strong>Bread</strong>, <strong>Tart</strong><br>* — обязательные поля</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q15: Поля модели Customer <span class="qa-arrow">▼</span></div><div class="qa-answer">CustomerId, FirstName, LastName, Email, PhoneNumber, Age, Gender, ZipCode, <strong>MembershipStatus</strong> (Basic/Gold/Platinum), JoinDate, LastPurchaseDate, <strong>TotalSpending</strong>, AvgOrderValue, Frequency, PreferredCategory, <strong>ChurnStatus</strong></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q16: Поля модели Order и статусы <span class="qa-arrow">▼</span></div><div class="qa-answer">OrderId, CustomerId, OrderDate, TotalAmount, <strong>Status</strong>, DeliveryMethod (Pickup/Delivery), OrderItems<br><br>Статусы: <code>Pending</code> → <code>Processing</code> → <code>Completed</code> (или <code>Cancelled</code>)</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q17: Что такое OrderItem? <span class="qa-arrow">▼</span></div><div class="qa-answer">OrderItem — позиция в заказе. Поля: ItemId, OrderId (ссылка на заказ), ProductId (ссылка на товар), Quantity (количество), UnitPrice (цена за единицу).<br><br>Пример: 3× Круассан по 2.50 = сумма 7.50</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q18: Связи между моделями <span class="qa-arrow">▼</span></div><div class="qa-answer"><pre>Customer (1) ──→ (много) Order
+Order     (1) ──→ (много) OrderItem
+OrderItem (много) ──→ (1) Product
+
+Один клиент → много заказов
+Один заказ → много позиций  
+Каждая позиция → один товар</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q19: Что такое Entity Framework? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>Entity Framework (EF)</strong> — это ORM (Object-Relational Mapper).<br><br>Простыми словами: EF позволяет работать с базой данных через C# объекты, без написания SQL вручную.<br><br><pre>// Вместо: SELECT * FROM Products WHERE Category = 'Pastry'
+// Пишем на C#:
+var pastries = _db.Products.Where(p => p.Category == "Pastry").ToList();</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q20: Что такое DbContext? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>DbContext</strong> — главный класс Entity Framework, который управляет подключением к базе данных и всеми таблицами.<br><br><pre>class AppDbContext : DbContext {
+    public DbSet&lt;Product&gt;   Products   { get; set; }
+    public DbSet&lt;Customer&gt;  Customers  { get; set; }
+    public DbSet&lt;Order&gt;     Orders     { get; set; }
+    public DbSet&lt;OrderItem&gt; OrderItems { get; set; }
+}</pre></div></div>
+
+  <h3 style="margin:24px 0 12px;">💻 Часть 4: Desktop приложение</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q21: Какие формы в Desktop приложении? <span class="qa-arrow">▼</span></div><div class="qa-answer"><table><tr><th>Форма</th><th>Функция</th></tr><tr><td>MainForm</td><td>Главное меню, 3 кнопки навигации</td></tr><tr><td>ProductsForm</td><td>CRUD операции с товарами</td></tr><tr><td>OrdersForm</td><td>Создание и управление заказами</td></tr><tr><td>AnalyticsForm</td><td>3 вкладки: CLTV, Churn, Forecast</td></tr></table></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q22: Что такое ApiService? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>ApiService</strong> — класс в Desktop приложении, который отвечает за отправку HTTP запросов в API.<br><br>Когда сотрудник нажимает кнопку "Добавить товар", форма вызывает ApiService, который формирует HTTP POST запрос и отправляет его на localhost:5001.</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q23: Что такое async/await? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>async/await</strong> — асинхронное программирование.<br><br>Без async/await: приложение "зависает" пока ждёт ответа от API (пользователь видит зависший экран).<br><br>С async/await: приложение остаётся отзывчивым — пока идёт запрос, можно делать другие вещи.<br><br><pre>// Асинхронный запрос — не блокирует UI
+var products = await _apiService.GetProductsAsync();</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q24: Процесс добавления товара через Desktop <span class="qa-arrow">▼</span></div><div class="qa-answer">1. Сотрудник заполняет форму и нажимает "Добавить"<br>2. ProductsForm вызывает <code>ApiService.CreateProduct(dto)</code><br>3. ApiService отправляет POST на <code>http://localhost:5001/api/products</code><br>4. ProductsController проверяет данные (валидация)<br>5. Entity Framework сохраняет в SQL Server<br>6. Возвращается 201 Created с данными товара<br>7. Desktop показывает "Товар добавлен!" и обновляет таблицу</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q25: Статусы заказа и их смысл <span class="qa-arrow">▼</span></div><div class="qa-answer"><code>Pending</code> — заказ только создан, ждёт обработки<br><code>Processing</code> — заказ в работе, пекарня готовит<br><code>Completed</code> — заказ выполнен и выдан<br><code>Cancelled</code> — заказ отменён<br><br>Переход: Pending → Processing → Completed (или Cancelled)</div></div>
+
+  <h3 style="margin:24px 0 12px;">📈 Часть 5: Analytics</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q26: Что такое CLTV и зачем? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>CLTV = Customer Lifetime Value</strong> — сколько денег клиент принесёт за всё время.<br><br>Формула: <code>CLTV = AvgOrderValue × Frequency × CustomerLifetime</code><br><br>Пример: Жан Дюпон: 100₸ × 5раз/мес × 30мес = <strong>15,000₸</strong><br><br>Важность: показывает ценность клиента, помогает решить — VIP или нет, сколько тратить на удержание.</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q27: Что такое Churn и как интерпретировать? <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>Churn Rate</strong> — % клиентов которые ушли и перестали покупать.<br><br>Формула: <code>Churn Rate = ушедшие / всего × 100%</code><br><br>Интерпретация: 10–20% — норма ✅, 30% — нужно улучшать ⚠️, 50%+ — критично ❌<br><br>Что делать при высоком Churn: программы лояльности, улучшить качество, специальные предложения.</div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q28: Как Analytics интегрирована из Session 1? <span class="qa-arrow">▼</span></div><div class="qa-answer">Python (Session 1) → CSV файлы → C# AnalyticsDataLoader → C# Models → AnalyticsForm<br><br>CSV файлы: <code>Session1_CLTV.csv</code>, <code>Session1_Churn_Analysis.csv</code>, <code>Session1_SalesForecast.csv</code><br><br>AnalyticsDataLoader читает CSV и создаёт объекты <code>CLTVData</code>, <code>ChurnMetrics</code>, <code>SalesForecast</code>, которые отображаются в 3 вкладках AnalyticsForm.</div></div>
+
+  <h3 style="margin:24px 0 12px;">✅ Часть 6: Тестирование</h3>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q29: Зачем нужны unit-тесты и как запустить? <span class="qa-arrow">▼</span></div><div class="qa-answer">Unit-тесты нужны чтобы: гарантировать корректность кода, найти баги рано, защитить от регрессии, упростить рефакторинг.<br><br>Запуск: <pre>cd BakeryInventoryTesting
+dotnet test
+# Результат: Passed: 19 ✅</pre></div></div>
+
+  <div class="qa-item"><div class="qa-question" onclick="toggleQA(this)">Q30: Объясни один тест из проекта <span class="qa-arrow">▼</span></div><div class="qa-answer"><strong>Тест: себестоимость не может быть выше цены</strong><br><pre>[Test]
+public void Constructor_CostGreaterThanPrice_ThrowsArgumentException()
+{
+    // Price=1.00, Cost=2.00 → ошибка! Пекарня в убытке!
+    Assert.Throws&lt;ArgumentException&gt;(() =>
+        new BakeryItem(1, "Круассан", "Pastry", 1.00m, 2.00m, 10));
+    // Тест проходит если выброшено исключение ✅
+}</pre>Этот тест гарантирует, что нельзя создать товар где прибыли нет.</div></div>
+</div>
+
+<!-- ======================== QUIZ ======================== -->
+<div id="tab-quiz" class="tab-content">
+  <div class="section-title">🧠 Интерактивный квиз</div>
+  <div class="section-subtitle">Проверь себя! Выбирай ответы — потом нажми кнопку, чтобы сбросить и начать заново.</div>
+
+  <div class="quiz-score-bar">
+    <div>
+      <div style="font-size:14px; color:#C4A46A; margin-bottom:4px;">Твой результат</div>
+      <div class="quiz-score-num" id="quizScore">0 / 15</div>
+    </div>
+    <div style="flex:1; padding: 0 32px;">
+      <div style="font-size:13px;color:#C4A46A;margin-bottom:6px;">Прогресс</div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="quizProgress" style="width:0%"></div></div>
+    </div>
+    <button class="quiz-reset-btn" onclick="resetQuiz()">🔄 Начать заново</button>
+  </div>
+
+  <div id="quizContainer"></div>
+</div>
+
+<!-- ======================== CHEATSHEET ======================== -->
+<div id="tab-cheatsheet" class="tab-content">
+  <div class="section-title">⚡ Шпаргалка</div>
+  <div class="section-subtitle">Всё самое важное на одной странице — для повторения за 5 минут перед экзаменом</div>
+
+  <div style="background:var(--brown);border-radius:16px;padding:28px;margin-bottom:20px;">
+    <div style="color:var(--gold-light);font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:20px;">🎯 ЗАПОМНИ НА 100%</div>
+    <div class="grid-2" style="gap:24px;">
+      <div>
+        <div style="color:var(--gold-light);font-weight:800;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Архитектура</div>
+        <pre style="background:rgba(0,0,0,0.3);border-color:#6B3D22;font-size:13px;">Desktop → API → Database
+(3 слоя)</pre>
+        <div style="color:var(--gold-light);font-weight:800;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin:16px 0 8px;">HTTP Методы</div>
+        <pre style="background:rgba(0,0,0,0.3);border-color:#6B3D22;font-size:13px;">GET    = Получить
+POST   = Создать
+PUT    = Обновить
+DELETE = Удалить</pre>
+        <div style="color:var(--gold-light);font-weight:800;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin:16px 0 8px;">Логин / Пароль</div>
+        <pre style="background:rgba(0,0,0,0.3);border-color:#6B3D22;font-size:13px;">Username: staff
+Password: BCLyon2024
+Port:     5001</pre>
+      </div>
+      <div>
+        <div style="color:var(--gold-light);font-weight:800;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Валидация Product</div>
+        <pre style="background:rgba(0,0,0,0.3);border-color:#6B3D22;font-size:13px;">Price > 0        ✅
+Cost > 0         ✅
+Cost < Price     ✅
+Category ∈ {Pastry,
+  Bread, Tart}   ✅
+ReleaseDate      ✅</pre>
+        <div style="color:var(--gold-light);font-weight:800;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;margin:16px 0 8px;">Модели</div>
+        <pre style="background:rgba(0,0,0,0.3);border-color:#6B3D22;font-size:13px;">Product → Customer
+  → Order → OrderItem</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">📊 Аналитика</div>
+      <ul class="checklist">
+        <li><span class="icon">⭐</span><div><strong>CLTV</strong> — Customer Lifetime Value = ценность клиента за всё время</div></li>
+        <li><span class="icon">📉</span><div><strong>Churn Rate</strong> — % ушедших клиентов (норма 10–20%)</div></li>
+        <li><span class="icon">📅</span><div><strong>Forecast</strong> — прогноз продаж на 30 дней</div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">💻 Desktop формы</div>
+      <ul class="checklist">
+        <li><span class="icon">🏠</span><div><strong>MainForm</strong> — главное меню</div></li>
+        <li><span class="icon">📦</span><div><strong>ProductsForm</strong> — товары</div></li>
+        <li><span class="icon">📋</span><div><strong>OrdersForm</strong> — заказы</div></li>
+        <li><span class="icon">📊</span><div><strong>AnalyticsForm</strong> — аналитика</div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">✅ Тесты</div>
+      <ul class="checklist">
+        <li><span class="icon">🔢</span><div><strong>19</strong> unit-тестов</div></li>
+        <li><span class="icon">✅</span><div>Все должны пройти</div></li>
+        <li><span class="icon">💻</span><div><code class="code-inline">dotnet test</code></div></li>
+        <li><span class="icon">📁</span><div>BakeryInventoryTesting</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚡ Быстрый тест — отвечай не глядя!</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Вопрос</th><th>Ответ</th></tr>
+        <tr><td>HTTP метод для получения данных?</td><td><strong>GET</strong></td></tr>
+        <tr><td>HTTP метод для создания?</td><td><strong>POST</strong></td></tr>
+        <tr><td>HTTP метод для обновления?</td><td><strong>PUT</strong></td></tr>
+        <tr><td>HTTP метод для удаления?</td><td><strong>DELETE</strong></td></tr>
+        <tr><td>Какие категории товара?</td><td><strong>Pastry, Bread, Tart</strong></td></tr>
+        <tr><td>Логин и пароль?</td><td><strong>staff / BCLyon2024</strong></td></tr>
+        <tr><td>Порт API?</td><td><strong>5001</strong></td></tr>
+        <tr><td>Сколько тестов?</td><td><strong>19</strong></td></tr>
+        <tr><td>Сколько слоёв архитектуры?</td><td><strong>3 (Desktop, API, Database)</strong></td></tr>
+        <tr><td>Что такое CLTV?</td><td><strong>Customer Lifetime Value</strong></td></tr>
+        <tr><td>Что такое Churn?</td><td><strong>% ушедших клиентов</strong></td></tr>
+        <tr><td>Код ответа при создании?</td><td><strong>201 Created</strong></td></tr>
+        <tr><td>Код ответа при неверных данных?</td><td><strong>400 Bad Request</strong></td></tr>
+        <tr><td>Что такое Entity Framework?</td><td><strong>ORM для работы с БД без SQL</strong></td></tr>
+        <tr><td>Статусы заказа?</td><td><strong>Pending → Processing → Completed/Cancelled</strong></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🎬 Демонстрация за 5 шагов</div>
+    <div class="grid-2">
+      <div>
+        <ol style="padding-left:20px; line-height:2;">
+          <li>Запустить API (<code class="code-inline">dotnet run</code> в BelleCroissantAPI)</li>
+          <li>Запустить Desktop → добавить товар</li>
+          <li>Показать curl запрос в терминале</li>
+          <li>Создать заказ → изменить статус</li>
+          <li>Показать AnalyticsForm (3 вкладки)</li>
+        </ol>
+      </div>
+      <div>
+        <div class="callout callout-green">
+          <strong>💡 Главный совет</strong>
+          Объясняй ЧТО происходит "за кулисами". Например: "Когда я нажимаю кнопку, Desktop отправляет POST запрос в API с JSON данными, API проверяет валидацию и сохраняет в БД"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// TAB NAVIGATION
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// QA ACCORDION
+function toggleQA(el) {
+  const ans = el.nextElementSibling;
+  const wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.qa-question.open').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if (!wasOpen) {
+    el.classList.add('open');
+    ans.classList.add('open');
+  }
+}
+
+// QUIZ DATA
+const quizQuestions = [
+  { q: "Сколько слоёв в архитектуре проекта?", opts: ["2 (Desktop, Database)", "3 (Desktop, API, Database)", "4 (Desktop, API, DB, Tests)", "1 (только API)"], ans: 1, exp: "Трёхслойная архитектура: Desktop (Presentation) → REST API (Application) → SQL Server (Data). Каждый слой отвечает за свою функцию." },
+  { q: "Какой HTTP метод используется для СОЗДАНИЯ нового товара?", opts: ["GET", "PUT", "POST", "DELETE"], ans: 2, exp: "POST — используется для создания новых объектов. После успешного создания API возвращает 201 Created." },
+  { q: "Какой HTTP метод используется для ПОЛУЧЕНИЯ всех товаров?", opts: ["POST", "GET", "PUT", "DELETE"], ans: 1, exp: "GET — используется для получения (чтения) данных. Не изменяет данные на сервере." },
+  { q: "Какой логин и пароль у API?", opts: ["admin / admin123", "user / password", "staff / BCLyon2024", "bakery / lyon2024"], ans: 2, exp: "staff / BCLyon2024 — используется Basic Auth. Логин и пароль кодируются в Base64 и отправляются в заголовке Authorization." },
+  { q: "Какие категории товара допустимы?", opts: ["Cake, Bread, Pastry", "Pastry, Bread, Tart", "Croissant, Baguette, Tart", "Sweet, Salty, Baked"], ans: 1, exp: "Только три категории: Pastry (выпечка), Bread (хлеб), Tart (тарт). Любая другая категория вызовет ошибку валидации." },
+  { q: "Что возвращает API при успешном создании объекта?", opts: ["200 OK", "201 Created", "204 No Content", "202 Accepted"], ans: 1, exp: "201 Created — этот код означает, что новый объект был успешно создан. Обычно возвращается после POST запроса." },
+  { q: "Что произойдёт если Cost (себестоимость) > Price (цена)?", opts: ["Данные сохранятся нормально", "Вернётся 404 Not Found", "Вернётся 400 Bad Request", "Вернётся 201 Created"], ans: 2, exp: "400 Bad Request — нарушение валидации. Cost должна быть больше 0 и МЕНЬШЕ Price (иначе нет прибыли)." },
+  { q: "Сколько unit-тестов в проекте?", opts: ["10", "15", "19", "25"], ans: 2, exp: "19 unit-тестов в BakeryInventoryTesting. Все 19 должны пройти успешно при запуске dotnet test." },
+  { q: "Что такое CLTV?", opts: ["Customer Login Total Value", "Customer Lifetime Value", "Cost per Last Transaction View", "Churn Level Tracking Value"], ans: 1, exp: "Customer Lifetime Value — сколько денег один клиент принесёт за всё время, пока он остаётся клиентом пекарни." },
+  { q: "Что такое Churn Rate?", opts: ["Количество новых клиентов", "% клиентов, которые ушли", "Средний размер заказа", "Количество активных клиентов"], ans: 1, exp: "Churn Rate — процент клиентов, которые перестали покупать. Норма 10-20%. Высокий Churn означает, что нужно улучшать сервис или качество продуктов." },
+  { q: "На каком порту работает API?", opts: ["3000", "8080", "5000", "5001"], ans: 3, exp: "API работает на порту 5001: http://localhost:5001/api/products" },
+  { q: "Из чего состоит Desktop приложение?", opts: ["Одна форма (MainForm)", "2 формы (Main, Products)", "4 формы (Main, Products, Orders, Analytics)", "5 форм"], ans: 2, exp: "4 формы: MainForm (меню), ProductsForm (товары), OrdersForm (заказы), AnalyticsForm (CLTV, Churn, Forecast)." },
+  { q: "Что такое Entity Framework?", opts: ["Тестовый фреймворк", "ORM для работы с БД без SQL", "Фреймворк для UI", "REST клиент"], ans: 1, exp: "Entity Framework — ORM (Object-Relational Mapper). Позволяет работать с базой данных через C# объекты, без написания SQL запросов вручную." },
+  { q: "Откуда берутся данные для аналитики?", opts: ["Из SQL базы данных напрямую", "Из API в реальном времени", "Из CSV файлов Session 1 (Python)", "Вводятся вручную"], ans: 2, exp: "Данные аналитики — из CSV файлов, экспортированных Python-скриптами в Session 1. AnalyticsDataLoader читает CSV и передаёт в AnalyticsForm." },
+  { q: "Какой HTTP код означает 'объект не найден'?", opts: ["400 Bad Request", "401 Unauthorized", "404 Not Found", "500 Server Error"], ans: 2, exp: "404 Not Found — возвращается когда запрошенный объект не существует в БД. Например GET /api/products/999 при несуществующем ID." }
+];
+
+let quizAnswered = new Array(quizQuestions.length).fill(null);
+let quizScore = 0;
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = quizQuestions.map((q, i) => `
+    <div class="quiz-card" id="qcard-${i}">
+      <div class="quiz-question">${i+1}. ${q.q}</div>
+      <div class="quiz-options">
+        ${q.opts.map((opt, j) => `
+          <button class="quiz-opt" id="qopt-${i}-${j}" onclick="answerQuiz(${i}, ${j})">${opt}</button>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback" id="qfeedback-${i}"></div>
+    </div>
+  `).join('');
+}
+
+function answerQuiz(qi, oi) {
+  if (quizAnswered[qi] !== null) return;
+  quizAnswered[qi] = oi;
+  const q = quizQuestions[qi];
+  const card = document.getElementById('qcard-' + qi);
+  const fb = document.getElementById('qfeedback-' + qi);
+  
+  for (let j = 0; j < q.opts.length; j++) {
+    const btn = document.getElementById(`qopt-${qi}-${j}`);
+    btn.disabled = true;
+    if (j === q.ans) btn.classList.add('correct-opt');
+    else if (j === oi && oi !== q.ans) btn.classList.add('wrong-opt');
+  }
+  
+  const correct = oi === q.ans;
+  fb.className = `quiz-feedback show ${correct ? 'correct' : 'wrong'}`;
+  fb.innerHTML = correct
+    ? `✅ <strong>Правильно!</strong> ${q.exp}`
+    : `❌ <strong>Неверно.</strong> Правильный ответ: <strong>${q.opts[q.ans]}</strong><br>${q.exp}`;
+  
+  if (correct) { quizScore++; card.classList.add('correct'); }
+  else card.classList.add('wrong');
+  
+  updateScore();
+}
+
+function updateScore() {
+  const answered = quizAnswered.filter(a => a !== null).length;
+  document.getElementById('quizScore').textContent = `${quizScore} / ${quizQuestions.length}`;
+  document.getElementById('quizProgress').style.width = (answered / quizQuestions.length * 100) + '%';
+}
+
+function resetQuiz() {
+  quizAnswered = new Array(quizQuestions.length).fill(null);
+  quizScore = 0;
+  updateScore();
+  renderQuiz();
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
